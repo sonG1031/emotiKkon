@@ -36,19 +36,21 @@ print(img_pil.size, font.getbbox(text))
 # 텍스트 정렬 작업
 draw = ImageDraw.Draw(img_pil)
 _, _, w, h = draw.textbbox((0,0), text, font=font)
+row_padding = img_pil.size[0] * 0.05
+col_padding = img_pil.size[1] * 0.05
 
 textX, textY = 0, 0
 if row == 'center':
     textX = (img_pil.size[0] - w) / 2
 elif row == 'right':
-    textX = img_pil.size[0] - w
+    textX = img_pil.size[0] - w - row_padding
 elif row == 'left':
-    textX = 0
+    textX = 0 + row_padding
 
 if col == 'mid':
     textY = (img_pil.size[1] - h) / 2
 elif col == 'bottom':
-    textY = img_pil.size[1] - h
+    textY = img_pil.size[1] - h - col_padding
 elif col == 'top':
     textY = 0
 
