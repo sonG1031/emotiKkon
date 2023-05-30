@@ -8,13 +8,13 @@ text = input("text: ")
 row, col = input("row,col >>> ").split(',')
 
 # 이미지 불러옴, PIL 포멧으로 변환
-img = cv2.imread('testImg/moon.jpeg')
+img = cv2.imread('testImg/meAndHyo.jpeg')
 img_pil = Image.fromarray(img)
 
 # 작업에 필요한 변수 세팅
 fontsize = 1
 row_img_fraction = 0.8 # 이미지에 차지할 정도
-col_img_fraction = 0.2
+col_img_fraction = 0.1
 font_path = "Arita-buriM.otf"
 
 font = ImageFont.truetype(font_path, fontsize)
@@ -34,8 +34,8 @@ print(img_pil.size, font.getbbox(text))
 
 
 # 텍스트 정렬 작업
-draw = ImageDraw.Draw(img_pil)
-_, _, w, h = draw.textbbox((0,0), text, font=font)
+draw = ImageDraw.Draw(img_pil, 'RGBA')
+_, _, w, h = draw.textbbox((0,0), text, font=font) # 뒷배경을 채우기 위해 bbox 사용
 row_padding = img_pil.size[0] * 0.05
 col_padding = img_pil.size[1] * 0.05
 
@@ -55,6 +55,20 @@ elif col == 'top':
     textY = 0
 
 print((textX, textY))
+# 뒷배경 삽입
+box_color_RGBA  = (0,0,0,255)
+fill_color_RGBA = (0,0,0,255)
+
+l, t, r, b = draw.textbbox((textX,textY), text, font=font) # (left,top,right,bottom)
+bbox_row_padding = r * 0.02
+bbox_col_padding = r * 0.02
+l = l - bbox_row_padding
+r = r + bbox_row_padding
+t = t - bbox_col_padding
+b = b + bbox_col_padding
+
+draw.rectangle((l, t, r, b), outline=box_color_RGBA, fill=fill_color_RGBA)
+
 # 텍스트 삽입
 draw.text((textX, textY), text, (255,255,255), font=font)
 
