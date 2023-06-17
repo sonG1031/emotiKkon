@@ -8,8 +8,8 @@ app = FastAPI()
 
 @app.post("/")
 async def make_emotikkon(kakao_request: dict):
-    text = kakaoUrlHandler(kakao_request['action']['detailParams']['secureimage']['origin'])
-    img_url = kakao_request['action']['params']['image']
+    text = kakao_request['action']['params']['text']
+    img_url = kakaoUrlHandler(kakao_request['action']['detailParams']['secureimage']['origin'])
     path = "./temp/" + text + '.jpg'
 
     handler = HandleImg(text, img_url)
