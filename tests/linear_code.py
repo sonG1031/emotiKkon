@@ -8,14 +8,13 @@ text = input("text: ")
 row, col = input("row,col >>> ").split(',')
 
 # 이미지 불러옴, PIL 포멧으로 변환
-img = cv2.imread('testImg/meAndHyo.jpeg')
-img_pil = Image.fromarray(img)
+img_pil = Image.open('./testImg/moon.jpeg')
 
 # 작업에 필요한 변수 세팅
 fontsize = 1
 row_img_fraction = 0.8 # 이미지에 차지할 정도
 col_img_fraction = 0.1
-font_path = "Arita-buriM.otf"
+font_path = "../fonts/SUITE-SemiBold.ttf"
 
 font = ImageFont.truetype(font_path, fontsize)
 row_end = row_img_fraction * img_pil.size[0]
@@ -72,9 +71,4 @@ draw.rectangle((l, t, r, b), outline=box_color_RGBA, fill=fill_color_RGBA)
 # 텍스트 삽입
 draw.text((textX, textY), text, (255,255,255), font=font)
 
-# 다시 넘파이 배열로 변경
-img = np.array(img_pil)
-
-# 화면 띄우기
-cv2.imshow('image', img)
-cv2.waitKey()
+img_pil.show()

@@ -8,21 +8,24 @@ class HandleImg:
     __fontsize = 1
     __row_img_fraction = 0.8  # 이미지에 차지할 정도
     __col_img_fraction = 0.1
-    __font_path = "Arita-buriM.otf"
+    __font_path = "../fonts/SUITE-SemiBold.ttf"
     __font = ImageFont.truetype(__font_path, __fontsize)
     __textX = 0
     __textY = 0
 
-    def __init__(self, text, align: dict[str, str], file):
+    def __init__(self, text, file, align: dict[str, str]=None):
+        if align is None:
+            self.align = {'row': 'center', 'col': 'bottom'}
+        else:
+            self.align = align
         self.text = text
-        self.align = align
-        self.file = file
-        self.img_pil = Image.open(file.file)
+        # self.file = file
+        self.img_pil = Image.open(file)
         self.draw = ImageDraw.Draw(self.img_pil, 'RGBA')
 
 
     # 이 클래스의 main 함수같은 느낌
-    async def draw(self, bg: bool=False):
+    async def make_emotikkon(self, bg: bool=False):
         await self.__set_fontsize()
         await self.__align_text()
 
@@ -55,18 +58,18 @@ class HandleImg:
         col_padding = self.img_pil.size[1] * 0.05
 
         if self.align['row'] == 'center':
-            __textX = (self.img_pil.size[0] - w) / 2
+            self.__textX = (self.img_pil.size[0] - w) / 2
         elif self.align['row'] == 'right':
-            __textX = self.img_pil.size[0] - w - row_padding
+            self.__textX = self.img_pil.size[0] - w - row_padding
         elif self.align['row'] == 'left':
-            __textX = 0 + row_padding
+            self.__textX = 0 + row_padding
 
         if self.align['col'] == 'mid':
-            __textY = (self.img_pil.size[1] - h) / 2
+            self.__textY = (self.img_pil.size[1] - h) / 2
         elif self.align['col'] == 'bottom':
-            __textY = self.img_pil.size[1] - h - col_padding
+            self.__textY = self.img_pil.size[1] - h - col_padding
         elif self.align['col'] == 'top':
-            __textY = 0
+            self.__textY = 0
 
 
     # 텍스트 뒷배경 추가(텍스트 삽입보다 먼저 호출해야함!!)
