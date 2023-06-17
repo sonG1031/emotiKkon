@@ -1,13 +1,14 @@
 from fastapi import FastAPI
 from tools.HandleImg import HandleImg
 from tools.imgurUpload import upload_imgur
+from tools.kakaoUrl import kakaoUrlHandler
 
 app = FastAPI()
 
 
 @app.post("/")
 async def make_emotikkon(kakao_request: dict):
-    text = kakao_request['action']['params']['text']
+    text = kakaoUrlHandler(kakao_request['action']['detailParams']['secureimage']['origin'])
     img_url = kakao_request['action']['params']['image']
     path = "./temp/" + text + '.jpg'
 
