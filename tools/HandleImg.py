@@ -1,6 +1,7 @@
 import numpy as np
 import cv2
 from PIL import ImageFont, ImageDraw, Image
+import requests
 
 
 class HandleImg:
@@ -19,8 +20,7 @@ class HandleImg:
         else:
             self.align = align
         self.text = text
-        # self.file = file
-        self.img_pil = Image.open(file)
+        self.img_pil = Image.open(requests.get(file, stream=True).raw)
         self.draw = ImageDraw.Draw(self.img_pil, 'RGBA')
 
 

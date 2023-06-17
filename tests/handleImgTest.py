@@ -1,8 +1,8 @@
 import asyncio
 import sys, os
 
-sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__)))) # schemas.HandleImg 임포트 오류 해결
-from schemas.HandleImg import HandleImg
+sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__)))) # tools.HandleImg 임포트 오류 해결
+from tools.HandleImg import HandleImg
 
 
 async def main():

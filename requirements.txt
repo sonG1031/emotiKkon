@@ -1,19 +1,29 @@
 anyio==3.7.0
+brotlipy==0.7.0
+certifi @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_b64zphacdv/croot/certifi_1683875375103/work/certifi
+cffi @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_1b0qzba5nr/croot/cffi_1670423213150/work
+charset-normalizer @ file:///tmp/build/80754af9/charset-normalizer_1630003229654/work
 click==8.1.3
+cryptography @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_19cvzxmeb9/croot/cryptography_1677533085498/work
 exceptiongroup==1.1.1
 fastapi==0.97.0
 h11==0.14.0
 httptools==0.5.0
-idna==3.4
+idna @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_00jf0h4zbt/croot/idna_1666125573348/work
 numpy==1.24.3
 opencv-python==4.5.5.62
 Pillow==9.5.0
+pycparser @ file:///tmp/build/80754af9/pycparser_1636541352034/work
 pydantic==1.10.9
+pyOpenSSL @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_6dweji2whw/croot/pyopenssl_1677607689781/work
+PySocks @ file:///Users/builder/ci_310/pysocks_1642536366386/work
 python-dotenv==1.0.0
 PyYAML==6.0
+requests @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_ec2sxfa_zk/croot/requests_1682607519671/work
 sniffio==1.3.0
 starlette==0.27.0
 typing_extensions==4.6.3
+urllib3 @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_1968zekhce/croot/urllib3_1686163172153/work
 uvicorn==0.22.0
 uvloop==0.17.0
 watchfiles==0.19.0
