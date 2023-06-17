@@ -5,7 +5,7 @@ app = FastAPI()
 
 @app.post("/")
 async def make_emotikkon(kakao_request: dict):
-    print(kakao_request)
+    print(kakao_request['params'])
 
     return {
         "version": "2.0",
