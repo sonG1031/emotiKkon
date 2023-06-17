@@ -13,7 +13,7 @@ async def make_emotikkon(kakao_request: dict):
 
     handler = HandleImg(text, img_url)
     img = await handler.make_emotikkon(bg=True)
-    img.save(path, "JPEG")
+    img.save(path)
 
     res_url = await upload_imgur(path)
 

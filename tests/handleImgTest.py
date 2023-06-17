@@ -6,7 +6,7 @@ from tools.HandleImg import HandleImg
 
 
 async def main():
-    handler = HandleImg('흐규흐규', './testImg/moon.jpeg')
+    handler = HandleImg('힣', 'https://blog.kakaocdn.net/dn/dowIkh/btrdtJZG3Eh/74NuD1tiFw7QzhqxOZ2Po0/img.png')
 
     print(handler.align)
     img_pil = await handler.make_emotikkon(bg=True)

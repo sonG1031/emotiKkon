@@ -7,7 +7,8 @@ class HandleImg:
     __fontsize = 1
     __row_img_fraction = 0.8  # 이미지에 차지할 정도
     __col_img_fraction = 0.1
-    __font_path = "../fonts/SUITE-SemiBold.ttf"
+    # __font_path = "/Users/pulledsub/projects/emotiKkon/fonts/SUITE-SemiBold.ttf" # for MacOS, 내 작업환경
+    __font_path = "/app/fonts/SUITE-SemiBold.ttf" # cloudtype 환경
     __font = ImageFont.truetype(__font_path, __fontsize)
     __textX = 0
     __textY = 0
